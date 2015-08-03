@@ -47,3 +47,9 @@ C16/
 # Zipped files and txt files from book
 *.txt
 *.zip
+
+# files which were distributed with the book
+TIC2Vone-distribution/
+makefile
+makefile.bugs
+require.h
