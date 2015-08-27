@@ -1,22 +1,34 @@
 #include <iostream>
+#include "printBinary.h"
 using namespace std;
 
 void func(void* vp, int bytes_count, unsigned char value){
+    // assigns byte value to each of the bytes in the table
     for (int i = 0 ; i < bytes_count ; i++)
         *((unsigned char*)vp+i) = value;
 }
-
+void printBinaryInt(int number){
+    unsigned char* ucp = reinterpret_cast<unsigned char*>(&number);
+    for (int i = sizeof(int)-1 ; i >= 0 ; i--){
+        printBinary(*(ucp+i));
+        cout << " " ;
+    }
+}
 void print_int_table(int* table, int size){
     for (int i =0 ; i < size ; i++){
         cout << "table[" << i << "] = " << table[i] << endl;
+        printBinaryInt(table[i]);
+        cout << endl;
     }
 }
 
+
 int main(){
-    int bytes_count = 8;
-    unsigned char value = '1';
+    int bytes_count = 10;
+    unsigned char value = char(1);
     int len = 10 ;
     int table[len] ;
+    //Initialize table with zeros
     for (int i = 0 ; i < len ; i++)
         table[i] = 0 ;
     print_int_table(table,len);
