@@ -10,8 +10,11 @@ void func(void* vp, int bytes_count, unsigned char value){
 void printBinaryInt(int number){
     unsigned char* ucp = reinterpret_cast<unsigned char*>(&number);
     for (int i = sizeof(int)-1 ; i >= 0 ; i--){
-        printBinary(*(ucp+i));
         cout << " " ;
+        printBinary(*(ucp+i));
+#ifdef DEBUG
+        cout << " Debugging stuff here for "<< i << " octet" << endl ;
+#endif
     }
 }
 void print_int_table(int* table, int size){
