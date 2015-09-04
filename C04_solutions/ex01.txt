@@ -1,0 +1,7 @@
+The difference between c++ and c is that for c we don't have to declare the
+function before usage. C program works normally without function declaration.
+
+In case of c++ the function has to be declared before use. Hence the program in 
+C++ would not work if the library with function is not declared.
+
+
