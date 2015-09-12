@@ -1,0 +1,1 @@
+To add a definition during compilation simply add -D<flag>.

@@ -1,0 +1,1 @@
+To compile *.cpp files as c language files we can use -x c option. For c++ language -x c++ applies.
