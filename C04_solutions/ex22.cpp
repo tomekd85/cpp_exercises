@@ -24,13 +24,9 @@ int main(){
         }
         s->add(line.c_str());
         //cout << line << endl;
-        cout << counter << endl ;
+        //cout << counter << endl ;
         counter++;
         if (counter == 5){
-            i = 0;
-            while((temp = (char*)s->fetch(i++)) != 0){
-                cout << temp << endl;
-            }
             fiveliners.push(s);
             counter = 0;
         }
