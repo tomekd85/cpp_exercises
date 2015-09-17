@@ -11,8 +11,10 @@ int main(){
     Stack fiveliners;
     fiveliners.initialize();
     ifstream in("ex22.cpp");
+    int i = 0;
     int a = 80;
     int counter = 0 ;
+    char* temp;
     string line;
     Stash* s;
     while(getline(in,line)){
@@ -20,13 +22,14 @@ int main(){
             s = new Stash;
             s->initialize(sizeof(char) * 80);
         }
-
         s->add(line.c_str());
-        counter++;
+        //cout << line << endl;
         cout << counter << endl ;
+        counter++;
         if (counter == 5){
-            for (int i = 0; i < s->count() ; i++){
-                cout << *(char*)s->fetch(i);
+            i = 0;
+            while((temp = (char*)s->fetch(i++)) != 0){
+                cout << temp << endl;
             }
             fiveliners.push(s);
             counter = 0;
@@ -36,14 +39,13 @@ int main(){
     Stack reverted;
     reverted.initialize();
     void* copy;
-    char* temp;
     while(copy = fiveliners.pop())
         reverted.push(copy);
     while (copy = reverted.pop()){
         s = reinterpret_cast<Stash*>(copy);
-        for (int i=0 ; i < s->count() ; i++){
-            temp = reinterpret_cast<char*>(s->fetch(i));
-            //cout << *temp ;
+        i = 0;
+        while((temp= (char*)s->fetch(i++)) != 0){
+            cout << temp << endl;
         }
     }
 }
